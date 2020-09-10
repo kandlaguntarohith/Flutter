@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "53080701846",
+    "firebase_url": "https://wallpaperapp-9acd3.firebaseio.com",
+    "project_id": "wallpaperapp-9acd3",
+    "storage_bucket": "wallpaperapp-9acd3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:53080701846:android:d7f75449e89289e5097bb7",
+        "android_client_info": {
+          "package_name": "aloha.apps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "53080701846-l4206dl9k94rj8g09cemfltmtb79evdc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "aloha.apps",
+            "certificate_hash": "a6564a478efe36630c08c5ddeec75180e0e1d9e1"
+          }
+        },
+        {
+          "client_id": "53080701846-vc400h31bvt04vlsmtt7ir6qceisdvum.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlX7M_6yCMjf8D-_WrZsqVt5Mpz2HtYfQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "53080701846-vc400h31bvt04vlsmtt7ir6qceisdvum.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
