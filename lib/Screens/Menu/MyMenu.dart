@@ -25,7 +25,7 @@ class MyMenu extends StatefulWidget {
 }
 
 class _MyMenuState extends State<MyMenu> with SingleTickerProviderStateMixin {
-  var maxWidth;
+  var maxWidth, maxHeight;
   FirebaseUser currentUser;
   AnimationController _animationController;
   Animation<double> _scaleAnimation;
@@ -323,6 +323,7 @@ class _MyMenuState extends State<MyMenu> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     maxWidth = MediaQuery.of(context).size.width;
+    maxHeight = MediaQuery.of(context).size.height;
     return Material(
       color: MyThemeData.menuBackgroundColor,
       child: Column(
@@ -335,11 +336,12 @@ class _MyMenuState extends State<MyMenu> with SingleTickerProviderStateMixin {
               scale: _scaleAnimation,
               child: Container(
                 width: maxWidth,
+                height: maxHeight,
                 padding: const EdgeInsets.only(left: 5),
                 alignment: Alignment.centerLeft,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
-                  // mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Container(
                       height: 100,
@@ -348,7 +350,6 @@ class _MyMenuState extends State<MyMenu> with SingleTickerProviderStateMixin {
                         shape: BoxShape.circle,
                         color: MyThemeData.accentColor,
                         image: DecorationImage(
-                          // image: AssetImage('assets/images/user.png'),
                           image: currentUser == null
                               ? AssetImage(
                                   'assets/images/user.png',
@@ -409,67 +410,6 @@ class _MyMenuState extends State<MyMenu> with SingleTickerProviderStateMixin {
               ),
             ),
           ),
-          SizedBox(
-            height: 50,
-          ),
-          Container(
-            alignment: Alignment.centerLeft,
-            width: 250,
-            child: Divider(
-              color: MyThemeData.menuBackgroundColor != Colors.grey
-                  ? Colors.grey
-                  : Colors.black,
-            ),
-          ),
-          SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.only(left: 20.0),
-            child: Text(
-              "Developed By : ",
-              style: TextStyle(
-                  fontFamily: 'RobotoCondensed-Regular',
-                  color: MyThemeData.menuBackgroundColor != Colors.grey
-                      ? Colors.grey
-                      : Colors.black,
-                  fontSize: 14),
-            ),
-          ),
-          SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.only(left: 20.0),
-            child: Text(
-              "Kandlagunta Rohith",
-              style: TextStyle(
-                  fontFamily: 'RobotoCondensed-Regular',
-                  color: MyThemeData.menuBackgroundColor != Color(0xFFEFEFEF)
-                      ? Colors.white
-                      : Colors.black,
-                  fontSize: 14),
-            ),
-          ),
-          SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: Row(
-              children: [
-                customIconButton(
-                  'facebook.png',
-                  'https://www.facebook.com/profile.php?id=100003151788754',
-                ),
-                SizedBox(width: 13),
-                customIconButton(
-                  'Instagram.png',
-                  "https://instagram.com/kandlaguntarohith",
-                ),
-                SizedBox(width: 13),
-                customIconButton(
-                  'Github0.png',
-                  "https://github.com/kandlaguntarohith",
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 30),
         ],
       ),
     );

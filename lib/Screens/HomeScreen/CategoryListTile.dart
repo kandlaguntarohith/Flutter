@@ -31,7 +31,7 @@ class CategoriesListTile extends StatelessWidget {
                   const Radius.circular(5),
                 ),
                 image: DecorationImage(
-                  image: NetworkImage(category.imgUrl),
+                  image: AssetImage(category.path),
                   fit: BoxFit.cover,
                 ),
               ),

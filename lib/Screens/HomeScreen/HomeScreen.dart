@@ -106,9 +106,15 @@ class _HomeScreenState extends State<HomeScreen>
 
   Widget getBodyWidget(HomePage homePage) {
     if (homePage == HomePage.developersHub)
-      return HubSpace(collectionName: 'Wallpapers',key: Key('1'),);
+      return HubSpace(
+        collectionName: 'Wallpapers',
+        key: Key('1'),
+      );
     else if (homePage == HomePage.communityHub)
-      return HubSpace(collectionName: 'CommunityWallpapers',key: Key("2"),);
+      return HubSpace(
+        collectionName: 'CommunityWallpapers',
+        key: Key("2"),
+      );
     else if (homePage == HomePage.settings)
       return Settings(
         updateThemeData: updateThemeData,

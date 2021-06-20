@@ -18,10 +18,11 @@ class _BodyImagesState extends State<BodyImages> {
   Widget build(BuildContext context) {
     maxItemLogicalLength = (MediaQuery.of(context).size.width - 30) / 2;
     return StaggeredGridView.countBuilder(
+      addAutomaticKeepAlives: true,
       shrinkWrap: true,
       physics: BouncingScrollPhysics(),
       crossAxisCount: 4,
-      itemCount: widget.count??widget.images.length,
+      itemCount: widget.count ?? widget.images.length,
       itemBuilder: (BuildContext context, int index) => ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(10)),
         child: GestureDetector(

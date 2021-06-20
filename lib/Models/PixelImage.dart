@@ -15,5 +15,5 @@ class PixelImage {
         portrait = json['src']['portrait'],
         original = json['src']['original'],
         url = json['url'],
-        compressedOriginal = json['src']['large'];
+        compressedOriginal = json['src']['medium'];
 }

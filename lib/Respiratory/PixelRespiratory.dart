@@ -14,7 +14,6 @@ class PixelRespiratory {
     per_page = 20,
   ]) async {
     _dio.options.headers["Authorization"] = api;
-    // print(page);
     var param = {
       'page': page,
       'per_page': per_page,
