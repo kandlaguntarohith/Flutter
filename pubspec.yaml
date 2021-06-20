@@ -53,6 +53,7 @@ dev_dependencies:
   image: ^2.1.14
   shared_preferences: ^0.5.8
   image_gallery_saver: ^1.5.0
+  # file_picker: ^3.0.2+2
 
 
 

@@ -11,6 +11,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:math';
 import 'package:image/image.dart' as IM;
+// import 'package:file_picker/file_picker.dart';
 
 /// Widget to capture and crop the image
 class ImageUpload extends StatefulWidget {
