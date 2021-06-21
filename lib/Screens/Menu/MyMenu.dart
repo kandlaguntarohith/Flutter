@@ -307,6 +307,8 @@ class _MyMenuState extends State<MyMenu> with SingleTickerProviderStateMixin {
   Widget customMenuButton(
       Function onPressFunction, String text, BuildContext context) {
     return FlatButton(
+      // padding: EdgeInsets.only(left: 1, right: 0),
+
       onPressed: onPressFunction,
       child: Text(
         text,
@@ -315,7 +317,7 @@ class _MyMenuState extends State<MyMenu> with SingleTickerProviderStateMixin {
           color: MyThemeData.accentColor,
           fontSize: 18,
         ),
-        textAlign: TextAlign.left,
+        textAlign: TextAlign.right,
       ),
     );
   }
@@ -326,91 +328,80 @@ class _MyMenuState extends State<MyMenu> with SingleTickerProviderStateMixin {
     maxHeight = MediaQuery.of(context).size.height;
     return Material(
       color: MyThemeData.menuBackgroundColor,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          SlideTransition(
-            position: _slideAnimation,
-            child: ScaleTransition(
-              scale: _scaleAnimation,
-              child: Container(
-                width: maxWidth,
-                height: maxHeight,
-                padding: const EdgeInsets.only(left: 5),
-                alignment: Alignment.centerLeft,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      height: 100,
-                      width: 100,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: MyThemeData.accentColor,
-                        image: DecorationImage(
-                          image: currentUser == null
-                              ? AssetImage(
-                                  'assets/images/user.png',
-                                )
-                              : NetworkImage(currentUser.photoUrl),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
+      child: SlideTransition(
+        position: _slideAnimation,
+        child: ScaleTransition(
+          scale: _scaleAnimation,
+          child: Container(
+            width: maxWidth / 2,
+            padding: EdgeInsets.only(right: (maxWidth / 2) * 0.03),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  height: 100,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: MyThemeData.accentColor,
+                    image: DecorationImage(
+                      image: currentUser == null
+                          ? AssetImage(
+                              'assets/images/user.png',
+                            )
+                          : NetworkImage(currentUser.photoUrl),
+                      fit: BoxFit.cover,
                     ),
-                    SizedBox(height: 30),
-                    customMenuButton(
-                      currentUser == null
-                          ? () => showLoginOptions(context)
-                          : () async {
-                              await _logOut();
-                              showSnackbar('Hasta la Vista', context);
-                              currentUser = null;
-                              setState(() {});
-                            },
-                      currentUser == null ? 'Sign In' : 'Sign Out',
-                      context,
-                    ),
-                    customMenuButton(
-                      () {
-                        widget.updateHomePageChoiceFunction(
-                            HomePage.pixelHomePage);
-                      },
-                      'Homepage',
-                      context,
-                    ),
-                    customMenuButton(
-                      () {
-                        widget.updateHomePageChoiceFunction(
-                            HomePage.developersHub);
-                      },
-                      'Developer Hub',
-                      context,
-                    ),
-                    customMenuButton(
-                      () {
-                        widget.updateHomePageChoiceFunction(
-                            HomePage.communityHub);
-                      },
-                      'Community Hub',
-                      context,
-                    ),
-                    customMenuButton(
-                        () => currentUser == null
-                            ? showSnackbar('Please LogIn to Upload !', context)
-                            : showAlertDialog(context),
-                        'Upload Wallpaper',
-                        context),
-                    customMenuButton(() {
-                      widget.updateHomePageChoiceFunction(HomePage.settings);
-                    }, 'Settings', context),
-                  ],
+                  ),
                 ),
-              ),
+                SizedBox(height: 30),
+                customMenuButton(
+                  currentUser == null
+                      ? () => showLoginOptions(context)
+                      : () async {
+                          await _logOut();
+                          showSnackbar('Hasta la Vista', context);
+                          currentUser = null;
+                          setState(() {});
+                        },
+                  currentUser == null ? 'Sign In' : 'Sign Out',
+                  context,
+                ),
+                customMenuButton(
+                  () {
+                    widget.updateHomePageChoiceFunction(HomePage.pixelHomePage);
+                  },
+                  'Homepage',
+                  context,
+                ),
+                customMenuButton(
+                  () {
+                    widget.updateHomePageChoiceFunction(HomePage.developersHub);
+                  },
+                  'Developer Hub',
+                  context,
+                ),
+                customMenuButton(
+                  () {
+                    widget.updateHomePageChoiceFunction(HomePage.communityHub);
+                  },
+                  'Community Hub',
+                  context,
+                ),
+                customMenuButton(
+                    () => currentUser == null
+                        ? showSnackbar('Please LogIn to Upload !', context)
+                        : showAlertDialog(context),
+                    'Add Wallpaper',
+                    context),
+                customMenuButton(() {
+                  widget.updateHomePageChoiceFunction(HomePage.settings);
+                }, 'Settings', context),
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }

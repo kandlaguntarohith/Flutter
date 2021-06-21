@@ -20,7 +20,6 @@ class _DevelopersHubState extends State<HubSpace> {
   bool load;
   List<FirebaseImage> images = [];
   void addMore() {
-    // print('called add');
     if (images.length == count) return;
     if (images.length > count) {
       if ((images.length - count) < 6) {
@@ -40,7 +39,7 @@ class _DevelopersHubState extends State<HubSpace> {
       dataSnapshot.documents.toList().forEach((element) {
         img.add(FirebaseImage.fromJson(element.data));
       });
-      count = img.length <= 6 ? img.length : 6;
+      count = img.length <= 10 ? img.length : 10;
       load = img.length == count ? false : true;
       setState(() {
         images = img;
@@ -77,7 +76,6 @@ class _DevelopersHubState extends State<HubSpace> {
                   count: count,
                 ),
                 Container(
-                  // padding: EdgeInsets.symmetric(vertical: 40),
                   height: 80,
                   child: load
                       ? BuildProgressIndicator()
