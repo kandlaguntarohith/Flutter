@@ -171,10 +171,6 @@ class _HomeScreenState extends State<HomeScreen>
     maxHeight = size.height;
     maxWidth = size.width;
     return Scaffold(
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () => widget.updateTheme(Colors.purple),
-      //   child: Icon(Icons.add),
-      // ),
       backgroundColor: theme.MyThemeData.menuBackgroundColor,
       body: Stack(
         children: [

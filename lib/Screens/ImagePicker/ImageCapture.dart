@@ -110,7 +110,7 @@ class _ImageUploadState extends State<ImageUpload> {
 
     try {
       resultList = await MultiImagePicker.pickImages(
-        maxImages: 10,
+        maxImages: widget.user.uid == 'jQs3Ejb6tfQSIoLT82AkiJkj0N63' ? 300 : 10,
         enableCamera: true,
         selectedAssets: images,
         cupertinoOptions: CupertinoOptions(takePhotoIcon: "chat"),
